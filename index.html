@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Siva Prasad Reddy — Data Analyst &amp; GenAI Engineer</title>
+<meta name="description" content="Portfolio of Siva Prasad Reddy — final-year AI &amp; ML student, GenAI intern, data analyst and cloud enthusiast.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230E1620'/%3E%3Ctext x='50' y='68' font-size='58' font-family='monospace' fill='%23D9A441' text-anchor='middle'%3E&gt;_%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0E1620;
+    --bg-alt:#141F2B;
+    --panel:#101A24;
+    --ink:#E9EEF2;
+    --ink-dim:#8FA0AC;
+    --ink-faint:#5C6B75;
+    --accent:#D9A441;
+    --accent-soft:rgba(217,164,65,0.12);
+    --teal:#4FA8A0;
+    --teal-soft:rgba(79,168,160,0.12);
+    --line:rgba(233,238,242,0.10);
+    --line-strong:rgba(233,238,242,0.18);
+    --radius:10px;
+    --maxw:1060px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans',system-ui,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Space Grotesk',system-ui,sans-serif;font-weight:600;line-height:1.15;margin:0;}
+  p{margin:0;}
+  a{color:inherit;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+  code,.mono{font-family:'IBM Plex Mono',monospace;}
+
+  /* ---------- nav ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(14,22,32,0.86);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 28px;
+  }
+  .brand{font-family:'Space Grotesk';font-weight:600;font-size:17px;letter-spacing:-0.01em;}
+  .brand span{color:var(--accent);}
+  .navlinks{display:flex;gap:28px;font-size:14px;color:var(--ink-dim);}
+  .navlinks a{text-decoration:none;transition:color .15s;}
+  .navlinks a:hover{color:var(--ink);}
+  .navtoggle{display:none;background:none;border:1px solid var(--line-strong);border-radius:6px;color:var(--ink);width:36px;height:36px;font-size:16px;cursor:pointer;}
+
+  /* ---------- hero ---------- */
+  .hero{padding:76px 0 60px;border-bottom:1px solid var(--line);}
+  .hero-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:52px;align-items:center;}
+  .eyebrow{color:var(--teal);font-size:14px;margin-bottom:14px;}
+  .hero h1{font-size:44px;letter-spacing:-0.02em;}
+  .hero h1 em{color:var(--accent);font-style:normal;}
+  .hero-sub{margin-top:16px;color:var(--ink-dim);font-size:16px;max-width:46ch;}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;}
+  .chip{
+    font-size:13px;color:var(--ink-dim);
+    border:1px solid var(--line-strong);border-radius:100px;
+    padding:6px 13px;
+  }
+  .chip b{color:var(--ink);font-weight:500;}
+  .cta-row{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;padding:11px 20px;border-radius:8px;
+    font-size:14px;font-weight:500;text-decoration:none;
+    transition:opacity .15s, transform .15s;
+  }
+  .btn:hover{opacity:0.86;}
+  .btn-primary{background:var(--accent);color:#1B140A;}
+  .btn-ghost{border:1px solid var(--line-strong);color:var(--ink);}
+
+  .term{
+    background:var(--panel);border:1px solid var(--line-strong);
+    border-radius:var(--radius);overflow:hidden;
+    box-shadow:0 20px 50px -20px rgba(0,0,0,0.5);
+  }
+  .term-head{
+    display:flex;align-items:center;gap:7px;padding:11px 14px;
+    border-bottom:1px solid var(--line);
+  }
+  .term-dot{width:9px;height:9px;border-radius:50%;background:var(--ink-faint);}
+  .term-title{margin-left:6px;font-size:12px;color:var(--ink-faint);}
+  .term-body{padding:22px 20px 26px;font-size:13.5px;min-height:190px;}
+  .term-body .l{color:var(--teal);}
+  .term-body .out{color:var(--ink-dim);}
+  .term-body .k{color:var(--accent);}
+  #caret{display:inline-block;width:7px;background:var(--accent);animation:blink 1s step-end infinite;}
+  @keyframes blink{50%{opacity:0;}}
+
+  /* ---------- sections ---------- */
+  section{padding:68px 0;border-bottom:1px solid var(--line);}
+  .label{font-size:13px;color:var(--teal);margin-bottom:10px;}
+  .sec-head{max-width:60ch;margin-bottom:38px;}
+  .sec-head h2{font-size:28px;letter-spacing:-0.01em;}
+  .sec-head p{color:var(--ink-dim);margin-top:10px;font-size:15px;}
+
+  /* about */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;}
+  .about-grid p{color:var(--ink-dim);font-size:15.5px;}
+  .about-grid p + p{margin-top:14px;}
+  .fact-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px;}
+  .fact-list li{
+    display:flex;justify-content:space-between;gap:16px;
+    padding-bottom:14px;border-bottom:1px solid var(--line);
+    font-size:14px;
+  }
+  .fact-list li span:first-child{color:var(--ink-faint);}
+  .fact-list li span:last-child{text-align:right;color:var(--ink);}
+
+  /* skills — schema table */
+  .schema{border:1px solid var(--line-strong);border-radius:var(--radius);overflow:hidden;}
+  .schema-row{
+    display:grid;grid-template-columns:230px 1fr;
+    border-top:1px solid var(--line);
+  }
+  .schema-row:first-child{border-top:none;}
+  .schema-row .field{
+    padding:18px 20px;background:var(--panel);
+    font-size:13.5px;color:var(--ink-dim);
+    display:flex;align-items:center;
+  }
+  .schema-row .field b{color:var(--ink);font-weight:500;margin-left:2px;}
+  .schema-row .values{
+    padding:16px 20px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;
+  }
+  .tag{
+    font-size:12.5px;padding:5px 11px;border-radius:6px;
+    background:var(--teal-soft);color:var(--teal);
+    border:1px solid rgba(79,168,160,0.28);
+  }
+
+  /* projects */
+  .proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  .proj-card{
+    border:1px solid var(--line-strong);border-radius:var(--radius);
+    padding:24px 22px;background:var(--panel);
+    display:flex;flex-direction:column;gap:12px;
+    transition:border-color .15s;
+  }
+  .proj-card:hover{border-color:var(--accent);}
+  .proj-card h3{font-size:17px;}
+  .proj-card .tags{display:flex;flex-wrap:wrap;gap:6px;}
+  .proj-card .tags span{
+    font-size:11.5px;color:var(--ink-dim);
+    border:1px solid var(--line);border-radius:5px;padding:3px 8px;
+  }
+  .proj-card .desc{color:var(--ink-dim);font-size:14px;flex-grow:1;}
+  .proj-card .result{
+    font-size:12.5px;color:var(--accent);
+    padding-top:10px;border-top:1px solid var(--line);
+  }
+  .proj-more{margin-top:22px;color:var(--ink-faint);font-size:13.5px;}
+  .proj-more b{color:var(--ink-dim);font-weight:500;}
+
+  /* certifications */
+  .cert-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 40px;}
+  .cert-group{padding:22px 0;border-top:1px solid var(--line);}
+  .cert-grid .cert-group:nth-child(-n+2){border-top:none;}
+  .cert-group h3{font-size:14px;color:var(--ink);margin-bottom:12px;}
+  .cert-group ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;}
+  .cert-group li{
+    font-size:13.5px;color:var(--ink-dim);
+    padding-left:16px;position:relative;
+  }
+  .cert-group li::before{
+    content:"";position:absolute;left:0;top:9px;
+    width:5px;height:5px;border-radius:50%;background:var(--accent);
+  }
+  .cert-group li a{color:var(--ink-dim);text-decoration:none;border-bottom:1px solid transparent;}
+  .cert-group li a:hover{color:var(--ink);border-bottom-color:var(--accent);}
+
+  /* experience */
+  .timeline{display:flex;flex-direction:column;}
+  .trow{
+    display:grid;grid-template-columns:150px 1fr;gap:24px;
+    padding:22px 0;border-top:1px solid var(--line);
+  }
+  .timeline .trow:first-child{border-top:none;}
+  .trow .when{color:var(--ink-faint);font-size:13px;}
+  .trow h3{font-size:16px;margin-bottom:6px;}
+  .trow .org{color:var(--teal);font-size:13.5px;margin-bottom:8px;}
+  .trow p{color:var(--ink-dim);font-size:14px;}
+
+  /* contact */
+  .contact-box{
+    border:1px solid var(--line-strong);border-radius:var(--radius);
+    padding:40px;background:var(--panel);
+    display:grid;grid-template-columns:1.2fr 1fr;gap:36px;align-items:center;
+  }
+  .contact-box h2{font-size:24px;margin-bottom:10px;}
+  .contact-box p{color:var(--ink-dim);font-size:14.5px;}
+  .contact-links{display:flex;flex-direction:column;gap:10px;}
+  .contact-links a{
+    display:flex;justify-content:space-between;
+    text-decoration:none;font-size:14px;
+    border:1px solid var(--line);border-radius:8px;
+    padding:12px 16px;color:var(--ink);
+    transition:border-color .15s;
+  }
+  .contact-links a:hover{border-color:var(--accent);}
+  .contact-links a span:last-child{color:var(--ink-faint);}
+
+  footer{padding:26px 0;text-align:center;color:var(--ink-faint);font-size:12.5px;}
+
+  /* responsive */
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr;}
+    .about-grid{grid-template-columns:1fr;}
+    .proj-grid{grid-template-columns:1fr;}
+    .cert-grid{grid-template-columns:1fr;}
+    .cert-grid .cert-group:nth-child(2){border-top:1px solid var(--line);}
+    .contact-box{grid-template-columns:1fr;padding:28px;}
+    .schema-row{grid-template-columns:1fr;}
+    .schema-row .field{padding-bottom:8px;}
+    .navlinks{display:none;}
+    .navtoggle{display:block;}
+    .hero h1{font-size:32px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    #caret{animation:none;}
+    .proj-card{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="brand">siva<span>.</span>dev</div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="navtoggle" id="navToggle" aria-label="Toggle menu">☰</button>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow mono">Final-year AI &amp; ML student · CBIT Proddatur · Class of 2027</div>
+      <h1>Siva Prasad Reddy — <em>data, decisions,</em> and language models.</h1>
+      <p class="hero-sub">I work at the point where data analysis meets generative AI: building RAG pipelines, computer-vision systems, and cloud-backed tools that turn raw information into something a person can act on.</p>
+      <div class="chips">
+        <div class="chip">CGPA <b>~8.0</b></div>
+        <div class="chip">GenAI Intern <b>@ DecodeLabs</b></div>
+        <div class="chip">Prior DevOps Intern <b>@ Reshapp</b></div>
+        <div class="chip">AWS Certified <b>Cloud Foundations</b></div>
+        <div class="chip">Hackathon Team <b>StratoForge</b></div>
+        <div class="chip">Certifications &amp; Achievements <b>25+</b></div>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#projects">See projects</a>
+        <a class="btn btn-ghost" href="#contact">Get in touch</a>
+      </div>
+    </div>
+
+    <div class="term">
+      <div class="term-head">
+        <div class="term-dot"></div><div class="term-dot"></div><div class="term-dot"></div>
+        <div class="term-title mono">query.sql</div>
+      </div>
+      <div class="term-body mono" id="termBody"></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label mono">01 About</div>
+      <h2>Grounded in data, building with GenAI</h2>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p>I'm a final-year B.Tech student in AI &amp; ML at CBIT Proddatur, graduating in 2027. I'm currently a Generative AI intern at DecodeLabs, where I build RAG pipelines, persona-driven system prompts, and brand-consistent image generation systems.</p>
+        <p>Before that, I worked as a DevOps intern at Reshapp Software Solutions. I compete in hackathons under the team name StratoForge, most recently building a generative AI model for ISRO's Bharatiya Antariksh Hackathon. I'm looking for roles in data analysis, GenAI engineering, and cloud.</p>
+      </div>
+      <ul class="fact-list">
+        <li><span>Degree</span><span>B.Tech, AI &amp; ML — CBIT Proddatur</span></li>
+        <li><span>Graduating</span><span>April 2027</span></li>
+        <li><span>CGPA</span><span>~8.0</span></li>
+        <li><span>Current role</span><span>GenAI Intern, DecodeLabs</span></li>
+        <li><span>Prior role</span><span>DevOps Intern, Reshapp Software Solutions</span></li>
+        <li><span>Certifications</span><span>AWS Cloud Foundations, NPTEL, and more</span></li>
+        <li><span>GitHub</span><span>github.com/Sivareddy317</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label mono">02 Skills</div>
+      <h2>Tools I reach for</h2>
+      <p>Organized the way I'd organize a dataset — by what each tool is actually for.</p>
+    </div>
+    <div class="schema">
+      <div class="schema-row">
+        <div class="field">Data analysis &amp; languages</div>
+        <div class="values"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Data Analysis</span></div>
+      </div>
+      <div class="schema-row">
+        <div class="field">Machine learning</div>
+        <div class="values"><span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">Scikit-learn</span></div>
+      </div>
+      <div class="schema-row">
+        <div class="field">GenAI &amp; LLMs</div>
+        <div class="values"><span class="tag">Google Gemini</span><span class="tag">Google AI Studio</span><span class="tag">DALL·E 3</span><span class="tag">Hugging Face</span><span class="tag">Vapi AI</span><span class="tag">ElevenLabs</span></div>
+      </div>
+      <div class="schema-row">
+        <div class="field">Cloud &amp; infra</div>
+        <div class="values"><span class="tag">AWS</span><span class="tag">Railway</span></div>
+      </div>
+      <div class="schema-row">
+        <div class="field">Web &amp; backend</div>
+        <div class="values"><span class="tag">Flask</span><span class="tag">SQLite</span><span class="tag">JWT</span><span class="tag">React</span></div>
+      </div>
+      <div class="schema-row">
+        <div class="field">Automation &amp; tooling</div>
+        <div class="values"><span class="tag">n8n</span><span class="tag">BeautifulSoup</span><span class="tag">ffmpeg</span><span class="tag">Twilio</span><span class="tag">Google Sheets</span><span class="tag">ClickUp</span><span class="tag">Canva</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label mono">03 Selected work</div>
+      <h2>Projects</h2>
+      <p>Replace the placeholder links below with your actual repo and demo URLs once each project is pushed.</p>
+    </div>
+    <div class="proj-grid">
+
+      <div class="proj-card">
+        <h3>Real-time traffic violation detection</h3>
+        <div class="tags"><span>Python</span><span>YOLOv8</span><span>Computer vision</span><span>Blockchain analytics</span></div>
+        <p class="desc">A real-time detection system that pairs YOLOv8 object detection with blockchain-backed analytics and automated fine generation for traffic violations.</p>
+        <div class="result">2nd Prize — CBIT Avinyak 2K25 &amp; 2K26 · 1st Place — Campus Project Expo</div>
+      </div>
+
+      <div class="proj-card">
+        <h3>ISRO BAH 2026 — cloud removal for satellite imagery</h3>
+        <div class="tags"><span>Generative AI</span><span>Partial Conv U-Net</span><span>SAR-optical fusion</span><span>Remote sensing</span></div>
+        <p class="desc">Built with team StratoForge for ISRO's Bharatiya Antariksh Hackathon: reconstructs cloud-obscured LISS-IV satellite imagery using a Partial Convolution U-Net, chosen over diffusion models for GPU feasibility, with synthetic cloud augmentation and band-specific spectral loss.</p>
+        <div class="result">Submitted via Hack2Skill — Problem Statement 2</div>
+      </div>
+
+      <div class="proj-card">
+        <h3>College chatbot — PDF + web RAG assistant</h3>
+        <div class="tags"><span>RAG</span><span>Python</span><span>Gemini</span><span>BeautifulSoup</span></div>
+        <p class="desc">A retrieval-augmented chatbot that answers student questions on placement eligibility and backlog policy from college documents, extended with scraped website data and automated notifications for at-risk students.</p>
+        <div class="result">Personal project — in progress</div>
+      </div>
+
+      <div class="proj-card">
+        <h3>Smart college gate pass management system</h3>
+        <div class="tags"><span>Flask</span><span>SQLite</span><span>JWT</span><span>Role-based access</span></div>
+        <p class="desc">A role-based web app for campus gate passes covering five user roles, with bulk approval workflows built for faculty and admin staff.</p>
+        <div class="result">Personal project</div>
+      </div>
+
+      <div class="proj-card">
+        <h3>GenAI systems at DecodeLabs</h3>
+        <div class="tags"><span>Prompt engineering</span><span>DALL·E 3</span><span>RAG</span><span>Gemini</span></div>
+        <p class="desc">Internship deliverables spanning a persona-driven AI assistant system prompt, brand-consistent product image generation, and a research-paper RAG pipeline built on Google Gemini via AI Studio.</p>
+        <div class="result">DecodeLabs internship</div>
+      </div>
+
+      <div class="proj-card">
+        <h3>AI voice agent system</h3>
+        <div class="tags"><span>Vapi AI</span><span>ElevenLabs</span><span>Twilio</span><span>n8n</span></div>
+        <p class="desc">Two voice agents: one answers forwarded interview calls using a persona built from a resume, the other is a lead follow-up concept for Instagram-sourced business leads.</p>
+        <div class="result">Personal project</div>
+      </div>
+
+    </div>
+    <p class="proj-more"><b>Also built:</b> DukaanPro, EUA (an emergency health assistant), and a Smart Traffic Management system — add descriptions and links here once you've written them up.</p>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label mono">04 Certifications</div>
+      <h2>Certifications &amp; achievements</h2>
+      <p>Every item links to the original certificate in <code class="mono">/assets/certifications</code>. Titles and dates are read directly off each document — check them against the issuer's site before publishing.</p>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-group">
+        <h3>Cloud &amp; AWS</h3>
+        <ul>
+          <li><a href="assets/certifications/aws-ml-engineer-associate.pdf" target="_blank" rel="noopener">AWS ML Engineer Associate — AWS Training &amp; Certification (Dec 2025)</a></li>
+          <li><a href="assets/certifications/aws-fundamentals-ml-ai.pdf" target="_blank" rel="noopener">Fundamentals of Machine Learning &amp; AI — AWS Training &amp; Certification (Nov 2025)</a></li>
+          <li>AWS Cloud Foundations</li>
+          <li><a href="assets/certifications/aws-one-week-workshop-cbit.pdf" target="_blank" rel="noopener">AWS — One-Week Workshop, CBIT (Nov 2025)</a></li>
+          <li><a href="assets/certifications/aws-devops-internship-cbit.pdf" target="_blank" rel="noopener">AWS DevOps — Short-Term Internship, CBIT (Apr–Jun 2026)</a></li>
+        </ul>
+      </div>
+      <div class="cert-group">
+        <h3>Data &amp; databases</h3>
+        <ul>
+          <li><a href="assets/certifications/database-and-sql.pdf" target="_blank" rel="noopener">Database and SQL (Jan 2025)</a></li>
+          <li><a href="assets/certifications/implementing-database-sql-server-2012.pdf" target="_blank" rel="noopener">Implementing Databases Using SQL Server 2012 (Apr 2025)</a></li>
+          <li><a href="assets/certifications/nptel-social-network-analysis-hall-ticket.pdf" target="_blank" rel="noopener">NPTEL — Social Network Analysis, CS100 (exam registered, Oct 2025)</a></li>
+        </ul>
+      </div>
+      <div class="cert-group">
+        <h3>Generative AI &amp; prompting</h3>
+        <ul>
+          <li><a href="assets/certifications/anthropic-ai-fluency-framework-foundations.pdf" target="_blank" rel="noopener">AI Fluency: Framework &amp; Foundations — Anthropic</a></li>
+          <li><a href="assets/certifications/anthropic-ai-fluency-for-students.pdf" target="_blank" rel="noopener">AI Fluency for Students — Anthropic</a></li>
+          <li><a href="assets/certifications/anthropic-claude-101.pdf" target="_blank" rel="noopener">Claude 101 — Anthropic</a></li>
+          <li><a href="assets/certifications/anthropic-teaching-ai-fluency-framework.pdf" target="_blank" rel="noopener">Teaching the AI Fluency Framework — Anthropic</a></li>
+          <li><a href="assets/certifications/google-ai-essentials.jpeg" target="_blank" rel="noopener">Google AI Essentials — 5-course specialization, Coursera (Aug 2026)</a></li>
+          <li><a href="assets/certifications/google-prompting-essentials.jpeg" target="_blank" rel="noopener">Google Prompting Essentials — Coursera (Aug 2026)</a></li>
+          <li><a href="assets/certifications/accenture-digital-skills-artificial-intelligence.pdf" target="_blank" rel="noopener">Digital Skills: Artificial Intelligence — Accenture / FutureLearn (Jul 2026)</a></li>
+          <li><a href="assets/certifications/forage-genai-data-analytics-job-simulation.pdf" target="_blank" rel="noopener">GenAI Powered Data Analytics Job Simulation — Forage (Aug 2026)</a></li>
+          <li><a href="assets/certifications/huggingface-llm-course.jpeg" target="_blank" rel="noopener">Hugging Face LLM Course</a></li>
+          <li><a href="assets/certifications/reliance-foundation-ai-ml-engineer-course.pdf" target="_blank" rel="noopener">AI–Machine Learning Engineer Certificate Course — Reliance Foundation Skilling Academy (Sep 2026)</a></li>
+          <li><a href="assets/certifications/decodelabs-genai-internship.pdf" target="_blank" rel="noopener">Generative AI Virtual Internship — DecodeLabs (Jun–Jul 2026)</a></li>
+        </ul>
+      </div>
+      <div class="cert-group">
+        <h3>Foundations, hackathons &amp; programs</h3>
+        <ul>
+          <li><a href="assets/certifications/java-tools.pdf" target="_blank" rel="noopener">Java Tools (Nov 2024)</a></li>
+          <li><a href="assets/certifications/design-thinking.pdf" target="_blank" rel="noopener">Design Thinking (Jan 2025)</a></li>
+          <li><a href="assets/certifications/edx-problem-solving-critical-thinking.pdf" target="_blank" rel="noopener">Problem Solving &amp; Critical Thinking Skills — edX / FullbridgeX</a></li>
+          <li><a href="assets/certifications/wadhwani-foundation-ignite-india.pdf" target="_blank" rel="noopener">Ignite India — Wadhwani Foundation (Sep 2025)</a></li>
+          <li><a href="assets/certifications/cmr-hackfest-3.0-participation.pdf" target="_blank" rel="noopener">CMR Hackfest 3.0 — 36-Hour National Hackathon, Participation (Jan 2026)</a></li>
+          <li><a href="assets/certifications/adobe-university-hackathon-participation.jpeg" target="_blank" rel="noopener">Adobe University Hackathon — Participation (Aug 2026)</a></li>
+          <li><a href="assets/certifications/swarna-andhra-2047-participation.pdf" target="_blank" rel="noopener">Swarna Andhra @ 2047 — Ideas for the Vision, Participation</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label mono">05 Experience</div>
+      <h2>Where I've worked</h2>
+    </div>
+    <div class="timeline">
+      <div class="trow">
+        <div class="when mono">Current</div>
+        <div>
+          <h3>Generative AI Intern</h3>
+          <div class="org">DecodeLabs</div>
+          <p>Building RAG pipelines with Google Gemini, persona-driven AI system prompts, and brand-consistent image generation using DALL·E 3.</p>
+        </div>
+      </div>
+      <div class="trow">
+        <div class="when mono">Prior</div>
+        <div>
+          <h3>DevOps Intern</h3>
+          <div class="org">Reshapp Software Solutions Pvt Ltd</div>
+          <p>Hands-on DevOps and cloud tooling work alongside AWS Cloud Foundations coursework.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="border-bottom:none;">
+  <div class="wrap">
+    <div class="contact-box">
+      <div>
+        <h2>Let's talk data.</h2>
+        <p>Open to Data Analyst, GenAI Engineer, Cloud, and Python-focused roles. Update the links here with your real handles before you publish.</p>
+      </div>
+      <div class="contact-links">
+        <a href="https://github.com/Sivareddy317" target="_blank" rel="noopener"><span>GitHub</span><span>Sivareddy317</span></a>
+        <a href="mailto:your.email@example.com"><span>Email</span><span>your.email@example.com</span></a>
+        <a href="#"><span>LinkedIn</span><span>add your URL</span></a>
+        <a href="#"><span>Resume</span><span>add a link or file</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Siva Prasad Reddy · built as a static site, deployable on GitHub Pages</div>
+</footer>
+
+<script>
+  // mobile nav toggle
+  document.getElementById('navToggle').addEventListener('click', function(){
+    var links = document.querySelector('.navlinks');
+    var visible = links.style.display === 'flex';
+    links.style.display = visible ? 'none' : 'flex';
+    links.style.flexDirection = 'column';
+    links.style.position = 'absolute';
+    links.style.top = '58px';
+    links.style.right = '20px';
+    links.style.background = 'var(--bg-alt)';
+    links.style.border = '1px solid var(--line-strong)';
+    links.style.borderRadius = '10px';
+    links.style.padding = '14px 20px';
+  });
+
+  // single orchestrated hero moment: typed terminal query
+  (function(){
+    var el = document.getElementById('termBody');
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var lines = [
+      {cls:'l', text:'> whoami'},
+      {cls:'out', text:'Siva Prasad Reddy\nFinal-year AI &amp; ML student, CBIT Proddatur'},
+      {cls:'l', text:'\n> SELECT focus_areas FROM siva WHERE year = 2027;'},
+      {cls:'out', text:'Data Analysis | GenAI Systems | Cloud | Python'}
+    ];
+    if(reduce){
+      el.innerHTML = lines.map(function(l){return '<div class="'+l.cls+'">'+l.text.replace(/\n/g,'<br>')+'</div>';}).join('');
+      return;
+    }
+    var i = 0, j = 0;
+    var current = document.createElement('div');
+    current.className = lines[0].cls;
+    el.appendChild(current);
+    var caret = document.createElement('span');
+    caret.id = 'caret';
+    caret.textContent = ' ';
+
+    function type(){
+      if(i >= lines.length){ current.appendChild(caret); return; }
+      var text = lines[i].text;
+      if(j < text.length){
+        var ch = text[j];
+        current.innerHTML += (ch === '\n') ? '<br>' : ch;
+        j++;
+        setTimeout(type, ch === '\n' ? 60 : 16 + Math.random()*18);
+      } else {
+        i++; j = 0;
+        if(i < lines.length){
+          current = document.createElement('div');
+          current.className = lines[i].cls;
+          el.appendChild(current);
+          setTimeout(type, 180);
+        } else {
+          current.appendChild(caret);
+        }
+      }
+    }
+    setTimeout(type, 400);
+  })();
+</script>
+
+</body>
+</html>
